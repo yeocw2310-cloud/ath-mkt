@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#0a0b0d" />
+<title>All earth — 세상 모든 곳의 지금</title>
+<meta name="description" content="지도 위에서 펼쳐지는 전 세계의 지금. 관심 국가·지역의 이슈와 현장 이야기를 만나보는 All earth." />
+<link rel="canonical" href="https://yeocw2310-cloud.github.io/ath-mkt/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="All earth" />
+<meta property="og:title" content="All earth — 세상 모든 곳의 지금" />
+<meta property="og:description" content="지도 위에서 펼쳐지는 전 세계의 지금. 관심 지역의 이슈와 이야기를 만나보세요." />
+<meta property="og:url" content="https://yeocw2310-cloud.github.io/ath-mkt/" />
+<meta property="og:image" content="https://yeocw2310-cloud.github.io/ath-mkt/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="All earth — 세상 모든 곳의 지금" />
+<meta name="twitter:description" content="지도 위에서 펼쳐지는 전 세계의 지금." />
+<meta name="twitter:image" content="https://yeocw2310-cloud.github.io/ath-mkt/og.png" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a0b0d'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23c6ff2e'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+:root{
+  --ink:#0a0b0d;--ink2:#14161a;--bg:#ffffff;--gray:#6b7280;--gray2:#9aa1ab;
+  --line:#e9ebee;--soft:#f5f7f8;--lime:#c6ff2e;--lime-deep:#a6e600;--lime-glow:rgba(198,255,46,.5);
+  --font:"Pretendard","Inter",-apple-system,BlinkMacSystemFont,system-ui,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer}
+::selection{background:var(--lime);color:var(--ink)}
+.wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
+
+/* ============ NAV ============ */
+.header{position:fixed;inset:0 0 auto;z-index:100;transition:background .4s,border-color .4s}
+.header.solid{background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--line)}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between}
+.logo{width:104px;height:40px;background:#d8dadd;color:#555;display:grid;place-items:center;font-size:14px;font-weight:800;border-radius:6px;letter-spacing:.08em;flex-shrink:0;border:1px dashed #b4b7bb}
+.header:not(.solid) .logo{background:#2a2d32;color:#cfd3d8;border-color:#44474d}
+.nav-right{display:flex;align-items:center;gap:22px}
+.navlinks{display:flex;align-items:center;gap:24px;font-size:14px;font-weight:700}
+.navlinks a{color:#4b515a;transition:color .2s;white-space:nowrap}
+.navlinks a:hover{color:var(--ink)}
+.header:not(.solid) .navlinks a{color:#c6ccd3}
+.header:not(.solid) .navlinks a:hover{color:#fff}
+.langs{display:inline-flex;background:#f0f2f4;border:1px solid #e3e6e9;padding:3px;border-radius:100px;gap:2px}
+.header:not(.solid) .langs{background:#ffffff1a;border-color:#ffffff26}
+.langs button{border:0;background:transparent;border-radius:100px;padding:6px 13px;font-size:12px;font-weight:800;color:#8b929b;letter-spacing:.3px;transition:.25s}
+.langs button.active{background:var(--ink);color:#fff}
+.header:not(.solid) .langs button{color:#aeb3ba}
+.header:not(.solid) .langs button.active{background:var(--lime);color:var(--ink)}
+.cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:var(--ink);border:0;border-radius:100px;padding:11px 19px;font-size:13.5px;font-weight:800;transition:transform .2s,box-shadow .25s;box-shadow:0 6px 20px -8px var(--lime-glow)}
+.cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px -10px var(--lime-glow)}
+
+/* ============ shared type ============ */
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.22em;color:var(--gray2)}
+.eyebrow.lime{color:var(--lime-deep)}
+.display{font-size:clamp(44px,7.4vw,96px);font-weight:900;letter-spacing:-.04em;line-height:1.04}
+.big{font-size:clamp(32px,5vw,62px);font-weight:900;letter-spacing:-.035em;line-height:1.12}
+.hl{color:var(--lime-deep)}
+.on-dark .hl,.stage-dark .hl{color:var(--lime)}
+.btn-lime{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:var(--ink);border-radius:100px;padding:16px 28px;font-size:16px;font-weight:800;box-shadow:0 10px 30px -10px var(--lime-glow);transition:transform .2s,box-shadow .25s}
+.btn-lime:hover{transform:translateY(-3px);box-shadow:0 18px 40px -12px var(--lime-glow)}
+.btn-ghost-d{display:inline-flex;align-items:center;gap:8px;border:1px solid #ffffff33;color:#fff;border-radius:100px;padding:15px 26px;font-size:16px;font-weight:700;transition:.2s}
+.btn-ghost-d:hover{border-color:#fff;background:#ffffff0d}
+
+/* ============ HERO (호기심 유발) ============ */
+.hero{position:relative;min-height:100svh;background:var(--ink);color:#fff;display:grid;place-items:center;overflow:hidden;text-align:center}
+.hero-bg{position:absolute;inset:0;background:
+  radial-gradient(60% 50% at 50% 34%,rgba(198,255,46,.16),transparent 60%),
+  radial-gradient(40% 40% at 78% 80%,rgba(60,120,255,.12),transparent 60%);}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:52px 52px;mask-image:radial-gradient(ellipse 70% 60% at 50% 42%,#000 10%,transparent 78%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 42%,#000 10%,transparent 78%)}
+.hero-inner{position:relative;z-index:3;padding:0 24px;will-change:transform,opacity}
+.hero-inner>*{opacity:0;transform:translateY(34px);animation:riseIn .95s cubic-bezier(.2,.65,.3,1) forwards}
+.hero-inner .eyebrow{animation-delay:.05s;margin-bottom:26px}
+.hero-inner h1{animation-delay:.18s}
+.hero-inner .sub{animation-delay:.34s;margin:26px auto 0;max-width:560px;font-size:clamp(17px,1.7vw,21px);color:#c3c9d1;font-weight:400}
+.hero-inner .hero-actions{animation-delay:.5s;margin-top:40px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+@keyframes riseIn{to{opacity:1;transform:none}}
+.scrollcue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;color:#9aa3ad;font-size:11px;font-weight:800;letter-spacing:.3em}
+.scrollcue i{width:22px;height:34px;border:2px solid #ffffff33;border-radius:12px;position:relative}
+.scrollcue i:after{content:"";position:absolute;left:50%;top:7px;width:4px;height:7px;background:var(--lime);border-radius:3px;transform:translateX(-50%);animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+
+/* ============ CHAPTER / STAGE (sticky scrub) ============ */
+.chapter{position:relative}
+.stage{position:sticky;top:0;height:100svh;display:grid;place-items:center;overflow:hidden;padding:84px 24px}
+.stage-dark{background:radial-gradient(70% 70% at 50% 42%,#15233a,#0a1020 76%);color:#fff}
+.stage-soft{background:var(--soft)}
+.stage-inner{position:relative;z-index:2;width:100%;max-width:1040px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:34px}
+
+/* chapter 2 — globe zoom */
+.c-head{will-change:transform,opacity}
+.c-head .eyebrow{margin-bottom:16px;display:block}
+.globe-stage{position:relative;width:min(440px,74vw);aspect-ratio:1;display:grid;place-items:center}
+.globe2{position:absolute;inset:0;border-radius:50%;will-change:transform,opacity}
+.globe2 .ring{position:absolute;inset:0;border:1px solid #ffffff14;border-radius:50%}
+.globe2 .ring.r2{inset:12%}.globe2 .ring.r3{inset:26%}
+.globe2 svg{position:absolute;inset:0;width:100%;height:100%}
+.globe2 .gcore{position:absolute;inset:6%;border-radius:50%;background:radial-gradient(circle at 32% 26%,#244c79,#0b1b33 70%);box-shadow:inset -22px -14px 40px #05112299,0 0 60px #7fc0ff22}
+.gpin{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 0 var(--lime-glow);animation:ping 2.6s infinite;z-index:3}
+@keyframes ping{0%{box-shadow:0 0 0 0 var(--lime-glow)}70%,100%{box-shadow:0 0 0 20px rgba(198,255,46,0)}}
+.mapflat{position:absolute;width:92%;aspect-ratio:1.28;border-radius:22px;opacity:0;will-change:transform,opacity;overflow:hidden;z-index:4;
+  background:#0e2036;border:1px solid #ffffff1a;box-shadow:0 40px 90px -30px #000a;
+  background-image:linear-gradient(#ffffff0e 1px,transparent 1px),linear-gradient(90deg,#ffffff0e 1px,transparent 1px);background-size:38px 38px}
+.mapflat:before{content:"";position:absolute;inset:14% 8%;background:#1f466c;clip-path:polygon(6% 22%,26% 8%,42% 28%,60% 16%,86% 30%,95% 56%,78% 84%,52% 70%,34% 92%,10% 68%);border-radius:24%;opacity:.9}
+.mapflat .mpin{position:absolute;left:58%;top:46%;width:18px;height:18px;border-radius:50%;background:var(--lime);border:3px solid #fff;box-shadow:0 0 0 9px #c6ff2e40,0 0 22px var(--lime)}
+.mapflat .mlabel{position:absolute;left:14%;top:16%;background:#fff;color:#122;border-radius:11px;padding:9px 12px;font-size:12px;font-weight:800;box-shadow:0 10px 24px #0006}
+.cap{color:#aeb6c2;font-size:clamp(15px,1.5vw,18px);max-width:460px;will-change:transform,opacity}
+.stage-soft .cap,.stage:not(.stage-dark) .cap{color:var(--gray)}
+
+/* chapter 3 — story cards */
+.story-deck{display:flex;gap:22px;justify-content:center;align-items:stretch;flex-wrap:wrap;perspective:1200px}
+.scard{width:300px;max-width:84vw;background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;text-align:left;box-shadow:0 30px 60px -34px #0b1a1240;will-change:transform,opacity}
+.scard .ph{height:150px}
+.scard .body{padding:18px 18px 22px}
+.scard .meta{display:flex;align-items:center;gap:9px;font-size:12.5px;font-weight:800;color:#58606b;margin-bottom:10px}
+.scard .av{width:30px;height:30px;border-radius:50%;background:#e7f7c4;display:grid;place-items:center;font-size:15px}
+.scard h4{font-size:16px;font-weight:800;letter-spacing:-.01em;margin-bottom:7px}
+.scard p{font-size:13.5px;color:#5b636e;line-height:1.6}
+.scard .tags{margin-top:12px;font-size:12px;font-weight:800;color:var(--lime-deep)}
+
+/* chapter 4 — reaction & share */
+.react-stage{position:relative;width:min(460px,100%);display:flex;flex-direction:column;align-items:center;gap:22px}
+.react-card{width:100%;background:#fff;border:1px solid var(--line);border-radius:26px;padding:26px;box-shadow:0 28px 60px -34px #16321f33}
+.react-img{height:168px;border-radius:16px;background:linear-gradient(145deg,#a5d6f2,#d9c5a6 50%,#8da3a8);display:grid;place-items:center;font-size:64px;margin-bottom:18px}
+.react-q{font-size:17px;font-weight:800;margin-bottom:4px}
+.react-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.react{background:var(--soft);border:1px solid var(--line);border-radius:13px;padding:14px 8px;font-size:12.5px;font-weight:800;transition:transform .3s,background .3s,border-color .3s}
+.react.active{background:var(--lime);border-color:var(--lime-deep);transform:scale(1.04)}
+.share-toast{display:flex;align-items:center;gap:12px;background:var(--ink);color:#fff;border-radius:16px;padding:15px 20px;font-size:14px;font-weight:700;will-change:transform,opacity;box-shadow:0 20px 44px -18px #000a}
+.share-toast .dot{width:30px;height:30px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;font-size:16px;font-weight:900}
+
+/* ============ APP INSTALL (앱 설치) ============ */
+.app{position:relative;background:var(--ink);color:#fff;overflow:hidden;padding:140px 0 150px}
+.app .hero-grid{mask-image:radial-gradient(ellipse 60% 70% at 70% 50%,#000 10%,transparent 76%);-webkit-mask-image:radial-gradient(ellipse 60% 70% at 70% 50%,#000 10%,transparent 76%)}
+.app-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.app-copy{opacity:0;transform:translateY(34px);transition:opacity .9s,transform .9s}
+.app.is-visible .app-copy{opacity:1;transform:none}
+.app-copy .eyebrow{margin-bottom:18px;display:block}
+.app-copy h2{font-size:clamp(34px,4.6vw,60px);font-weight:900;letter-spacing:-.035em;line-height:1.1;margin-bottom:20px}
+.app-copy p{color:#bcc3cd;font-size:18px;max-width:440px;margin-bottom:34px}
+.store-btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.store{display:inline-flex;align-items:center;gap:10px;background:#1b1e24;border:1px solid #2c3037;color:#fff;border-radius:14px;padding:13px 18px;font-weight:700;font-size:14px;position:relative}
+.store small{display:block;font-size:10px;color:#8b929c;font-weight:600;letter-spacing:.04em}
+.store .soon{position:absolute;top:-9px;right:10px;background:var(--lime);color:var(--ink);font-size:9px;font-weight:900;padding:2px 7px;border-radius:20px;letter-spacing:.04em}
+.phone-wrap{display:grid;place-items:center;opacity:0;transform:translateY(44px) scale(.96);transition:opacity 1s,transform 1s}
+.app.is-visible .phone-wrap{opacity:1;transform:none}
+.phone{width:270px;height:540px;border:10px solid #23262d;border-radius:44px;background:linear-gradient(180deg,#0d1b33,#0a1324);box-shadow:0 40px 90px -30px #000c;position:relative;overflow:hidden;animation:floaty 6s ease-in-out infinite}
+.phone:before{content:"";position:absolute;top:12px;left:50%;transform:translateX(-50%);width:96px;height:18px;background:#23262d;border-radius:0 0 14px 14px;z-index:3}
+.phone .screen{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(circle at 50% 38%,#20477a,#0a1324 72%)}
+.phone .mini-globe{width:150px;height:150px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#58aaf1,#174477 62%,#081d37);box-shadow:inset -22px -12px 26px #04142999,0 0 30px #91caff33;display:grid;place-items:center;font-size:72px}
+.phone .ppin{position:absolute;width:11px;height:11px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 6px #c6ff2e33,0 0 16px var(--lime)}
+@keyframes floaty{50%{transform:translateY(-16px)}}
+
+/* ============ FOOTER ============ */
+.footer{background:#07080a;color:#8b929c;padding:64px 0 40px}
+.footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:46px}
+.footer-brand{display:flex;align-items:center;gap:11px;color:#fff;font-size:21px;font-weight:800}
+.footer-dot{width:14px;height:14px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 5px #c6ff2e1f}
+.footer-brand+p{margin-top:16px;max-width:320px;line-height:1.8;font-size:14px}
+.footer-cols{display:flex;gap:72px}
+.footer-col{display:flex;flex-direction:column;gap:14px}
+.footer-col strong{color:#fff;font-size:14px}
+.footer-col a,.footer-col span{color:#8b929c;font-size:14px}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid #1a1d22;padding-top:26px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#6a7079}
+
+/* ============ reveal util ============ */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s,transform .8s}
+.reveal.is-visible{opacity:1;transform:none}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:860px){
+  .app-grid{grid-template-columns:1fr;gap:50px;text-align:center}
+  .app-copy{order:2}.phone-wrap{order:1}.app-copy p{margin-left:auto;margin-right:auto}.store-btns{justify-content:center}
+  .footer-top{flex-direction:column}.footer-cols{gap:48px}
+  .nav-right .cta{display:none}
+  .navlinks{display:none}
+}
+@media(max-width:560px){
+  .story-deck{gap:16px}.scard{width:100%}
+  .stage{padding:72px 20px}
+  .footer-bottom{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){
+  .chapter{height:auto!important}
+  .stage{position:static;height:auto;min-height:60vh}
+  .hero-inner>*{opacity:1;transform:none;animation:none}
+  .globe2,.mapflat,.c-head,.cap,.scard,.app-copy,.phone-wrap,.share-toast,.reveal{opacity:1!important;transform:none!important;transition:none!important}
+  .mapflat{position:relative;width:min(420px,80vw);margin-top:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="header" id="header">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="All earth 홈, 로고 자리 표시자">LOGO</a>
+    <div class="nav-right">
+      <nav class="navlinks" aria-label="목차">
+        <a href="#chMap" data-jump="chMap" data-i18n="navDirection">서비스 방향성</a>
+        <a href="#chStories" data-jump="chStories" data-i18n="navFeatures">핵심 기능</a>
+      </nav>
+      <div class="langs" role="group" aria-label="Language">
+        <button data-lang="ko" class="active" aria-pressed="true">KO</button>
+        <button data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="cta" href="https://nick-kim-ptk.github.io/ath/#" target="_blank" rel="noopener" data-i18n="navCta">MVP 체험하기 ↗</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ===== 1. 호기심 유발 ===== -->
+<section class="hero on-dark" id="chHero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner" id="heroInner">
+    <p class="eyebrow lime" data-i18n="heroEye">ALL EARTH · EXPLORE THE WORLD</p>
+    <h1 class="display"><span data-i18n="heroTitle1">세상 모든 곳의</span><br><span class="hl" data-i18n="heroTitle2">지금</span><span data-i18n="heroTitle3">을 만나다.</span></h1>
+    <p class="sub" data-i18n="heroSub">지구 반대편의 작은 이야기부터 지금 주목받는 지역의 소식까지. 지도 위에서 펼쳐지는 전 세계의 지금.</p>
+    <div class="hero-actions">
+      <a class="btn-lime" href="https://nick-kim-ptk.github.io/ath/#" target="_blank" rel="noopener" data-i18n="heroCta">MVP 서비스 체험하기 ↗</a>
+      <a class="btn-ghost-d" href="#chMap" data-i18n="heroScroll">아래로 내려보기 ↓</a>
+    </div>
+  </div>
+  <div class="scrollcue" id="scrollCue"><span>SCROLL</span><i></i></div>
+</section>
+
+<!-- ===== 2. 세계 지도 탐색 경험 ===== -->
+<section class="chapter" id="chMap" style="height:340vh">
+  <div class="stage stage-dark">
+    <div class="stage-inner">
+      <div class="c-head" id="c2head">
+        <span class="eyebrow lime">01 · EXPLORE THE MAP</span>
+        <h2 class="big"><span data-i18n="c2Title1">지구를 돌려,</span><br><span data-i18n="c2Title2">전 세계를 </span><span class="hl" data-i18n="c2Title3">탐색</span><span data-i18n="c2Title4">하세요.</span></h2>
+      </div>
+      <div class="globe-stage">
+        <div class="globe2" id="globe2">
+          <div class="gcore"></div>
+          <div class="ring"></div><div class="ring r2"></div><div class="ring r3"></div>
+          <svg viewBox="0 0 400 400" aria-hidden="true">
+            <g fill="rgba(198,255,46,.0)"></g>
+            <g fill="rgba(255,255,255,.26)">
+              <circle cx="150" cy="150" r="2.3"/><circle cx="164" cy="140" r="2.3"/><circle cx="140" cy="166" r="2.3"/><circle cx="174" cy="158" r="2.3"/><circle cx="132" cy="152" r="2.3"/>
+              <circle cx="242" cy="136" r="2.3"/><circle cx="256" cy="148" r="2.3"/><circle cx="268" cy="162" r="2.3"/><circle cx="252" cy="170" r="2.3"/><circle cx="278" cy="150" r="2.3"/>
+              <circle cx="200" cy="250" r="2.3"/><circle cx="216" cy="262" r="2.3"/><circle cx="188" cy="266" r="2.3"/><circle cx="226" cy="248" r="2.3"/><circle cx="204" cy="276" r="2.3"/>
+              <circle cx="120" cy="214" r="2.3"/><circle cx="135" cy="228" r="2.3"/><circle cx="110" cy="232" r="2.3"/><circle cx="282" cy="224" r="2.3"/><circle cx="268" cy="238" r="2.3"/>
+            </g>
+          </svg>
+          <span class="gpin" style="left:40%;top:38%"></span>
+          <span class="gpin" style="left:63%;top:35%;animation-delay:.8s"></span>
+          <span class="gpin" style="left:52%;top:63%;animation-delay:1.6s"></span>
+        </div>
+        <div class="mapflat" id="mapflat">
+          <span class="mlabel" data-i18n="c2Map">📍 서울 · 게시물 24</span>
+          <span class="mpin"></span>
+        </div>
+      </div>
+      <p class="cap" id="c2cap" data-i18n="c2Cap">관심 있는 국가와 지역을 선택하면, 그곳의 지금이 지도 위에서 열립니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. 지역 이야기 발견 ===== -->
+<section class="chapter" id="chStories" style="height:360vh">
+  <div class="stage">
+    <div class="stage-inner">
+      <div class="c-head" id="c3head">
+        <span class="eyebrow">02 · DISCOVER STORIES</span>
+        <h2 class="big"><span data-i18n="c3Title1">지역의 이야기가</span><br><span class="hl" data-i18n="c3Title2">하나씩</span><span data-i18n="c3Title3"> 도착합니다.</span></h2>
+      </div>
+      <div class="story-deck">
+        <article class="scard" data-card>
+          <div class="ph" style="background:linear-gradient(140deg,#f5c4d2,#b9d9f3 48%,#637f91)"></div>
+          <div class="body"><div class="meta"><span class="av">🌸</span><span data-i18n="s1Meta">도쿄 · 12분 전</span></div><h4 data-i18n="s1Title">골목마다 번지는 봄</h4><p data-i18n="s1Desc">도쿄의 골목에 봄 풍경이 가득해요.</p><div class="tags" data-i18n="s1Tags">#봄 #도쿄</div></div>
+        </article>
+        <article class="scard" data-card>
+          <div class="ph" style="background:linear-gradient(135deg,#f5b47e,#c96c61 48%,#503f67)"></div>
+          <div class="body"><div class="meta"><span class="av">🏙️</span><span data-i18n="s2Meta">서울 · 38분 전</span></div><h4 data-i18n="s2Title">성수의 새로운 팝업</h4><p data-i18n="s2Desc">오늘 성수에서는 새로운 팝업 이야기가 올라왔어요.</p><div class="tags" data-i18n="s2Tags">#성수팝업</div></div>
+        </article>
+        <article class="scard" data-card>
+          <div class="ph" style="background:linear-gradient(135deg,#8dcbd7,#3c9b8c 50%,#244f60)"></div>
+          <div class="body"><div class="meta"><span class="av">🗽</span><span data-i18n="s3Meta">뉴욕 · 1시간 전</span></div><h4 data-i18n="s3Title">거리에 열린 전시</h4><p data-i18n="s3Desc">뉴욕의 거리에 새로운 전시가 열렸어요.</p><div class="tags" data-i18n="s3Tags">#전시 #뉴욕</div></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 4. 참여 및 공유 ===== -->
+<section class="chapter" id="chShare" style="height:320vh">
+  <div class="stage stage-soft">
+    <div class="stage-inner">
+      <div class="c-head" id="c4head">
+        <span class="eyebrow">03 · PARTICIPATE &amp; SHARE</span>
+        <h2 class="big"><span data-i18n="c4Title1">반응하고,</span> <span class="hl" data-i18n="c4Title2">공유</span><span data-i18n="c4Title3">하세요.</span></h2>
+      </div>
+      <div class="react-stage">
+        <div class="react-card">
+          <div class="react-img">🏙️</div>
+          <div class="react-q" data-i18n="c4Q">이 지역의 이야기는 어떠셨나요?</div>
+          <div class="react-grid" id="reactGrid">
+            <button class="react active" data-i18n="r0">👍 도움돼요</button>
+            <button class="react" data-i18n="r1">✓ 지금도 그래요</button>
+            <button class="react" data-i18n="r2">↻ 상황이 달라졌어요</button>
+            <button class="react" data-i18n="r3">？ 잘 모르겠어요</button>
+          </div>
+        </div>
+        <div class="share-toast" id="shareToast"><span class="dot">✓</span><span data-i18n="c4Toast">내 반응이 지역 이야기에 공유되었어요.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5. 앱 설치 ===== -->
+<section class="app on-dark" id="chApp">
+  <div class="hero-grid"></div>
+  <div class="wrap app-grid">
+    <div class="app-copy">
+      <span class="eyebrow lime">04 · GET THE APP</span>
+      <h2><span data-i18n="c5Title1">지금, </span><span class="hl">All earth</span><span data-i18n="c5Title2">를<br>손안에서.</span></h2>
+      <p data-i18n="c5Desc">앱으로 관심 지역을 저장하고, 세계 곳곳의 새로운 이야기를 가장 먼저 만나보세요.</p>
+      <div class="store-btns">
+        <span class="store"><span class="soon" data-i18n="soon">준비 중</span>🍎<span><small data-i18n="dlOn">Download on the</small>App Store</span></span>
+        <span class="store"><span class="soon" data-i18n="soon2">준비 중</span>▶<span><small data-i18n="getOn">GET IT ON</small>Google Play</span></span>
+        <a class="btn-lime" href="https://nick-kim-ptk.github.io/ath/#" target="_blank" rel="noopener" data-i18n="c5Cta">MVP 체험하기 ↗</a>
+      </div>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="screen">
+          <div class="mini-globe">🌏</div>
+          <span class="ppin" style="left:40%;top:40%"></span>
+          <span class="ppin" style="left:62%;top:52%"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand"><span class="footer-dot"></span>All earth</div>
+        <p data-i18n="footDesc">세계 지도를 중심으로 각 지역의 이슈와 변화 흐름을 탐색하는 서비스.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col"><strong data-i18n="footService">서비스</strong><a href="#chMap" data-i18n="footDirection">서비스 방향성</a><a href="#chStories" data-i18n="footFeatures">핵심 기능</a></div>
+        <div class="footer-col"><strong data-i18n="footQuick">바로가기</strong><a href="https://nick-kim-ptk.github.io/ath/#" target="_blank" rel="noopener" data-i18n="footTry">서비스 둘러보기</a><span data-i18n="footContact">문의하기</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 All earth. All rights reserved.</span><span>Explore the world, one map at a time.</span></div>
+  </div>
+</footer>
+
+<script>
+const clamp=(n,a=0,b=1)=>Math.min(b,Math.max(a,n));
+const mix=(a,b,t)=>a+(b-a)*t;
+const range=(p,a,b)=>clamp((p-a)/(b-a));
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=s=>document.querySelector(s),$$=s=>document.querySelectorAll(s);
+
+/* ---------- i18n ---------- */
+const dict={
+ ko:{navCta:'MVP 체험하기 ↗',navDirection:'서비스 방향성',navFeatures:'핵심 기능',
+  heroEye:'ALL EARTH · EXPLORE THE WORLD',heroTitle1:'세상 모든 곳의',heroTitle2:'지금',heroTitle3:'을 만나다.',
+  heroSub:'지구 반대편의 작은 이야기부터 지금 주목받는 지역의 소식까지. 지도 위에서 펼쳐지는 전 세계의 지금.',
+  heroCta:'MVP 서비스 체험하기 ↗',heroScroll:'아래로 내려보기 ↓',
+  c2Title1:'지구를 돌려,',c2Title2:'전 세계를 ',c2Title3:'탐색',c2Title4:'하세요.',
+  c2Cap:'관심 있는 국가와 지역을 선택하면, 그곳의 지금이 지도 위에서 열립니다.',c2Map:'📍 서울 · 게시물 24',
+  c3Title1:'지역의 이야기가',c3Title2:'하나씩',c3Title3:' 도착합니다.',
+  s1Meta:'도쿄 · 12분 전',s1Title:'골목마다 번지는 봄',s1Desc:'도쿄의 골목에 봄 풍경이 가득해요.',s1Tags:'#봄 #도쿄',
+  s2Meta:'서울 · 38분 전',s2Title:'성수의 새로운 팝업',s2Desc:'오늘 성수에서는 새로운 팝업 이야기가 올라왔어요.',s2Tags:'#성수팝업',
+  s3Meta:'뉴욕 · 1시간 전',s3Title:'거리에 열린 전시',s3Desc:'뉴욕의 거리에 새로운 전시가 열렸어요.',s3Tags:'#전시 #뉴욕',
+  c4Title1:'반응하고,',c4Title2:'공유',c4Title3:'하세요.',c4Q:'이 지역의 이야기는 어떠셨나요?',
+  r0:'👍 도움돼요',r1:'✓ 지금도 그래요',r2:'↻ 상황이 달라졌어요',r3:'？ 잘 모르겠어요',
+  c4Toast:'내 반응이 지역 이야기에 공유되었어요.',
+  c5Title1:'지금, ',c5Title2:'를<br>손안에서.',c5Desc:'앱으로 관심 지역을 저장하고, 세계 곳곳의 새로운 이야기를 가장 먼저 만나보세요.',
+  c5Cta:'MVP 체험하기 ↗',soon:'준비 중',soon2:'준비 중',dlOn:'Download on the',getOn:'GET IT ON',
+  footDesc:'세계 지도를 중심으로 각 지역의 이슈와 변화 흐름을 탐색하는 서비스.',
+  footService:'서비스',footDirection:'서비스 방향성',footFeatures:'핵심 기능',footQuick:'바로가기',footTry:'서비스 둘러보기',footContact:'문의하기'},
+ en:{navCta:'Try the MVP ↗',navDirection:'Our Vision',navFeatures:'Key Features',
+  heroEye:'ALL EARTH · EXPLORE THE WORLD',heroTitle1:'Discover what’s happening',heroTitle2:'now',heroTitle3:', around the world.',
+  heroSub:'From little stories across the globe to the places drawing attention right now — the world’s present, unfolding on a map.',
+  heroCta:'Explore the MVP ↗',heroScroll:'Scroll down ↓',
+  c2Title1:'Spin the globe,',c2Title2:'explore the ',c2Title3:'whole',c2Title4:' world.',
+  c2Cap:'Pick a country or region, and its present moment opens right on the map.',c2Map:'📍 Seoul · 24 posts',
+  c3Title1:'Local stories arrive,',c3Title2:'one',c3Title3:' at a time.',
+  s1Meta:'Tokyo · 12 min ago',s1Title:'Spring in every alley',s1Desc:'The streets of Tokyo are full of spring colors.',s1Tags:'#Spring #Tokyo',
+  s2Meta:'Seoul · 38 min ago',s2Title:'A new pop-up in Seongsu',s2Desc:'New pop-up events are being talked about in Seongsu.',s2Tags:'#SeongsuPopup',
+  s3Meta:'New York · 1 hr ago',s3Title:'An exhibition on the street',s3Desc:'A new exhibition just opened in New York.',s3Tags:'#Exhibition #NewYork',
+  c4Title1:'React, and',c4Title2:'share',c4Title3:' it.',c4Q:'What do you think of this story?',
+  r0:'👍 Helpful',r1:'✓ Still happening',r2:'↻ Things changed',r3:'？ Not sure',
+  c4Toast:'Your reaction was shared with the local story.',
+  c5Title1:'Get ',c5Title2:'<br>in your hands.',c5Desc:'Save the places you care about and be the first to catch new stories from around the world.',
+  c5Cta:'Try the MVP ↗',soon:'Soon',soon2:'Soon',dlOn:'Download on the',getOn:'GET IT ON',
+  footDesc:'Explore local stories, issues, and changing perspectives through a world map.',
+  footService:'Service',footDirection:'Our vision',footFeatures:'Key features',footQuick:'Explore',footTry:'Try the service',footContact:'Contact'}
+};
+let lang='ko';
+function setLang(next){
+ lang=next;document.documentElement.lang=next;
+ $$('[data-i18n]').forEach(el=>{const v=dict[next][el.dataset.i18n];if(v!=null)el.innerHTML=v;});
+ $$('.langs button').forEach(b=>{const a=b.dataset.lang===next;b.classList.toggle('active',a);b.setAttribute('aria-pressed',String(a));});
+ document.title=next==='ko'?'All earth — 세상 모든 곳의 지금':'All earth — The world, right now';
+}
+$$('.langs button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+setLang('ko');
+
+/* ---------- nav solid on scroll ---------- */
+const header=$('#header');
+const onScrollNav=()=>header.classList.toggle('solid',scrollY>innerHeight*0.7);
+
+/* ---------- element refs ---------- */
+const heroInner=$('#heroInner'),scrollCue=$('#scrollCue');
+const chMap=$('#chMap'),globe2=$('#globe2'),mapflat=$('#mapflat'),c2head=$('#c2head'),c2cap=$('#c2cap');
+const chStories=$('#chStories'),c3head=$('#c3head'),scards=[...$$('#chStories [data-card]')];
+const chShare=$('#chShare'),c4head=$('#c4head'),reacts=[...$$('#reactGrid .react')],shareToast=$('#shareToast');
+
+function prog(el){const r=el.getBoundingClientRect();const h=r.height-innerHeight;return h<=0?0:clamp(-r.top/h);}
+
+function render(){
+ // 1) hero parallax out
+ const hp=clamp(scrollY/(innerHeight*0.92));
+ heroInner.style.opacity=String(1-hp);
+ heroInner.style.transform=`translateY(${-hp*70}px) scale(${1+hp*0.14})`;
+ scrollCue.style.opacity=String(clamp(1-hp*2.4));
+
+ // 2) map chapter — globe zoom then morph to flat map
+ const p2=prog(chMap);
+ const grow=ease(range(p2,0,.6));
+ globe2.style.transform=`scale(${mix(.58,1.16,grow)}) rotate(${mix(-8,6,grow)}deg)`;
+ globe2.style.opacity=String(1-ease(range(p2,.6,.82)));
+ const mr=ease(range(p2,.6,.86));
+ mapflat.style.opacity=String(mr);
+ mapflat.style.transform=`translateY(${mix(34,0,mr)}px) scale(${mix(.86,1,mr)})`;
+ const h2=ease(range(p2,.02,.18));
+ c2head.style.opacity=String(h2);c2head.style.transform=`translateY(${mix(40,0,h2)}px)`;
+ const cp=ease(range(p2,.26,.46))*(1-ease(range(p2,.8,.98)));
+ c2cap.style.opacity=String(cp);c2cap.style.transform=`translateY(${mix(26,0,ease(range(p2,.26,.46)))}px)`;
+
+ // 3) stories — cards fly in one by one
+ const p3=prog(chStories);
+ const h3=ease(range(p3,.02,.16));
+ c3head.style.opacity=String(h3);c3head.style.transform=`translateY(${mix(40,0,h3)}px)`;
+ scards.forEach((el,i)=>{const a=.2+i*.19;const t=ease(range(p3,a,a+.26));el.style.opacity=String(t);el.style.transform=`translateY(${mix(90,0,t)}px) scale(${mix(.8,1,t)})`;});
+
+ // 4) share — reactions light up, then toast pops
+ const p4=prog(chShare);
+ const h4=ease(range(p4,.02,.16));
+ c4head.style.opacity=String(h4);c4head.style.transform=`translateY(${mix(40,0,h4)}px)`;
+ const idx=p4<.22?0:Math.min(3,Math.floor(range(p4,.24,.72)*4));
+ reacts.forEach((b,i)=>b.classList.toggle('active',i===idx));
+ const st=ease(range(p4,.74,.92));
+ shareToast.style.opacity=String(st);shareToast.style.transform=`translateY(${mix(26,0,st)}px) scale(${mix(.95,1,st)})`;
+}
+
+let ticking=false;
+function onScroll(){onScrollNav();if(!ticking){requestAnimationFrame(()=>{render();ticking=false;});ticking=true;}}
+
+if(reduce){
+ // static: show everything, no scrub
+ [heroInner,globe2,mapflat,c2head,c2cap,c3head,c4head,shareToast].forEach(el=>{if(el){el.style.opacity='1';el.style.transform='none';}});
+ scards.forEach(el=>{el.style.opacity='1';el.style.transform='none';});
+ header.classList.add('solid');
+}else{
+ shareToast.style.opacity='0';
+ addEventListener('scroll',onScroll,{passive:true});
+ addEventListener('resize',onScroll);
+ render();onScrollNav();
+}
+
+/* ---------- 5) app install reveal ---------- */
+const app=$('#chApp');
+if(reduce){app.classList.add('is-visible');}
+else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){app.classList.add('is-visible');io.disconnect();}}),{threshold:.3});io.observe(app);}
+
+/* ---------- reactions clickable too ---------- */
+reacts.forEach(b=>b.addEventListener('click',()=>{reacts.forEach(x=>x.classList.toggle('active',x===b));}));
+
+/* ---------- nav 목차 tabs: smooth jump (land partway into sticky chapters so motion shows) ---------- */
+function jumpTo(id){
+ const el=document.getElementById(id);if(!el)return;
+ const top=window.scrollY+el.getBoundingClientRect().top;
+ const extra=reduce?0:Math.max(0,el.offsetHeight-innerHeight)*0.3;
+ window.scrollTo({top:Math.round(top+extra),behavior:'smooth'});
+}
+$$('[data-jump]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();jumpTo(a.getAttribute('data-jump'));}));
+</script>
+
+<!-- ===== 쿠키/개인정보 동의 배너 ===== -->
+<div id="ae-consent" hidden style="position:fixed;left:0;right:0;bottom:0;z-index:300;background:#0a0b0d;color:#fff;padding:14px 20px;display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;font-size:13px;line-height:1.55;border-top:1px solid #2a2e35;font-family:'Pretendard','Inter',sans-serif">
+  <span style="max-width:640px">본 사이트는 서비스 개선을 위해 Google Analytics · Microsoft Clarity 등 <b>분석 쿠키</b>를 사용합니다. 동의하시면 방문 · 클릭 · 스크롤 데이터가 수집됩니다.</span>
+  <span style="display:flex;gap:8px;flex-shrink:0">
+    <button type="button" onclick="aeConsent(true)" style="background:#c6ff2e;color:#0a0b0d;border:0;border-radius:9px;padding:9px 18px;font-weight:800;cursor:pointer;font-family:inherit">동의</button>
+    <button type="button" onclick="aeConsent(false)" style="background:transparent;color:#cfd3d8;border:1px solid #3a3e45;border-radius:9px;padding:9px 16px;font-weight:700;cursor:pointer;font-family:inherit">거부</button>
+  </span>
+</div>
+
+<!-- ===== Analytics (GA4 + Clarity), consent-gated ===== -->
+<script>
+(function(){
+  var GA_ID='G-P88426SVNP', CLARITY_ID='z6srzdt6ya', KEY='ae-consent', started=false;
+  function loadGA(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',GA_ID,{anonymize_ip:true});}
+  function loadClarity(){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",CLARITY_ID);}
+  function track(name,params){try{if(window.gtag)gtag('event',name,params||{});}catch(e){}try{if(window.clarity)clarity('event',name);}catch(e){}}
+  function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim().slice(0,40);}
+  function setupTracking(){
+    document.querySelectorAll('a.cta, a.btn-lime').forEach(function(el){el.addEventListener('click',function(){track('cta_click',{label:txt(el),location:el.closest('section')?el.closest('section').className:''});});});
+    document.querySelectorAll('.navlinks [data-jump]').forEach(function(el){el.addEventListener('click',function(){track('nav_click',{target:el.getAttribute('data-jump')});});});
+    document.querySelectorAll('.langs button').forEach(function(el){el.addEventListener('click',function(){track('lang_toggle',{lang:el.getAttribute('data-lang')});});});
+    document.querySelectorAll('.store').forEach(function(el){el.addEventListener('click',function(){track('store_click',{label:txt(el)});});});
+    var marks=[25,50,75,100],hit={};
+    function onScroll(){var h=document.documentElement;var sc=h.scrollTop||document.body.scrollTop||0;var max=(h.scrollHeight-h.clientHeight)||1;var p=Math.min(100,Math.round(sc/max*100));marks.forEach(function(m){if(p>=m&&!hit[m]){hit[m]=1;track('scroll_depth',{percent:m});}});}
+    addEventListener('scroll',onScroll,{passive:true});onScroll();
+  }
+  function init(){if(started)return;started=true;loadGA();loadClarity();setupTracking();}
+  window.aeConsent=function(ok){try{localStorage.setItem(KEY,ok?'yes':'no');}catch(e){}if(ok)init();var b=document.getElementById('ae-consent');if(b)b.hidden=true;};
+  var saved=null;try{saved=localStorage.getItem(KEY);}catch(e){}
+  if(saved==='yes'){init();}
+  else if(saved!=='no'){var b=document.getElementById('ae-consent');if(b)b.hidden=false;}
+})();
+</script>
+</body>
+</html>
