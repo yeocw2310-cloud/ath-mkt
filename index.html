@@ -406,7 +406,7 @@ footer{background:var(--paper);padding:80px 0 40px}
     <div class="mq" id="mq"></div>
     <div class="wrap">
       <div><span class="eyebrow" style="color:#fff">Start exploring</span><h2 class="h2" style="margin-top:16px">세상은 넓고,<br>이야기는 계속됩니다</h2><p class="desc">All Earth MVP에서 세계 곳곳의 지금을 직접 탐색해 보세요.</p></div>
-      <a class="orb" id="orb" href="https://nick-kim-ptk.github.io/ath/" target="_blank" rel="noopener"><span>MVP 서비스<br>체험하기<span class="arr">↗</span></span></a>
+      <div class="orbs"><a class="orb" id="orb" href="https://nick-kim-ptk.github.io/ath/" target="_blank" rel="noopener"><span>MVP 서비스<br>체험하기<span class="arr">↗</span></span></a><a class="orb orb-w" href="https://nick-kim-ptk.github.io/ath/dashboard.html" target="_blank" rel="noopener"><span>실 데이터<br>한눈에 보기<span class="arr">↗</span></span></a></div>
     </div>
   </section>
 </main>
@@ -628,6 +628,38 @@ resize();layoutSeoul();addEventListener("load",layoutSeoul);requestAnimationFram
 })();
 </script>
 
+<style>
+/* final: second orb (dashboard) */
+.orbs{display:flex;gap:clamp(12px,1.6vw,20px);flex-wrap:wrap}
+.orb-w{background:#fff;color:#3c8a2e}
+/* back-to-top floating button */
+#toTop{position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:24px;z-index:60;width:52px;height:52px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;box-shadow:0 0 0 1.5px var(--ink),0 14px 30px -12px rgba(0,0,0,.5);opacity:0;visibility:hidden;transform:translateY(16px) scale(.9);transition:opacity .35s,transform .45s cubic-bezier(.34,1.56,.64,1),visibility .35s,bottom .3s}
+#toTop.on{opacity:1;visibility:visible;transform:none}
+#toTop:hover{transform:translateY(-3px)}
+#toTop svg{width:22px;height:22px}
+@media (max-width:760px){#toTop{width:46px;height:46px;bottom:18px}}
+</style>
+<button type="button" id="toTop" aria-label="맨 위로 이동"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<script>
+(function(){
+  var btn=document.getElementById('toTop'),fin=document.getElementById('start');
+  var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function upd(){
+    var show=fin.getBoundingClientRect().top<innerHeight*0.6;
+    btn.classList.toggle('on',show);
+    var bn=document.getElementById('ae-consent');
+    btn.style.bottom=(bn&&bn.style.display!=='none'&&innerWidth<1000)?(bn.offsetHeight+28)+'px':'';
+  }
+  addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+  btn.addEventListener('click',function(){scrollTo({top:0,behavior:rm?'auto':'smooth'});});
+  /* magnetic hover for the added orb, same as the original */
+  document.querySelectorAll('.orb-w').forEach(function(o){
+    o.addEventListener('pointermove',function(e){var b=o.getBoundingClientRect();o.style.transform='translate('+(e.clientX-b.left-b.width/2)*.25+'px,'+(e.clientY-b.top-b.height/2)*.25+'px)';});
+    o.addEventListener('pointerleave',function(){o.style.transform='';});
+  });
+})();
+</script>
+
 <!-- ===== 쿠키/개인정보 동의 배너 ===== -->
 <div id="ae-consent" style="display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:80;max-width:880px;margin:0 auto;background:#23262C;color:#fff;padding:14px 16px 14px 20px;border-radius:18px;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:13px;line-height:1.55;box-shadow:0 20px 44px -18px rgba(0,0,0,.55);font-family:var(--sans)">
   <span style="max-width:600px">본 사이트는 서비스 개선을 위해 Google Analytics · Microsoft Clarity 등 <b style="color:#DEFA5F">분석 쿠키</b>를 사용합니다. 동의하시면 방문 · 클릭 · 스크롤 데이터가 수집됩니다.</span>
@@ -649,13 +681,14 @@ resize();layoutSeoul();addEventListener("load",layoutSeoul);requestAnimationFram
   function setupTracking(){
     document.querySelectorAll('a[href*="nick-kim-ptk.github.io/ath"]').forEach(function(el){el.addEventListener('click',function(){track('cta_click',{label:txt(el),location:where(el)});});});
     document.querySelectorAll('.hd .lnk, footer a[href^="#"]').forEach(function(el){el.addEventListener('click',function(){track('nav_click',{target:el.getAttribute('href'),location:where(el)});});});
+    var tt=document.getElementById('toTop');if(tt)tt.addEventListener('click',function(){track('back_to_top',{});});
     document.querySelectorAll('#rx button').forEach(function(el){el.addEventListener('click',function(){track('reaction_click',{label:txt(el.querySelector('b')||el)});});});
     var marks=[25,50,75,100],hit={};
     function onScroll(){var h=document.documentElement;var sc=h.scrollTop||document.body.scrollTop||0;var max=(h.scrollHeight-h.clientHeight)||1;var p=Math.min(100,Math.round(sc/max*100));marks.forEach(function(m){if(p>=m&&!hit[m]){hit[m]=1;track('scroll_depth',{percent:m});}});}
     addEventListener('scroll',onScroll,{passive:true});onScroll();
   }
   function init(){if(started)return;started=true;loadGA();loadClarity();setupTracking();}
-  window.aeConsent=function(ok){try{localStorage.setItem(KEY,ok?'yes':'no');}catch(e){}if(ok)init();var b=document.getElementById('ae-consent');if(b)b.style.display='none';};
+  window.aeConsent=function(ok){try{localStorage.setItem(KEY,ok?'yes':'no');}catch(e){}if(ok)init();var b=document.getElementById('ae-consent');if(b)b.style.display='none';window.dispatchEvent(new Event('resize'));};
   var saved=null;try{saved=localStorage.getItem(KEY);}catch(e){}
   if(saved==='yes'){init();}
   else if(saved!=='no'){var b=document.getElementById('ae-consent');if(b)b.style.display='flex';}
