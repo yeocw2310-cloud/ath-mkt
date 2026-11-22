@@ -718,7 +718,7 @@ resize();layoutSeoul();addEventListener("load",layoutSeoul);requestAnimationFram
   var tt=document.getElementById('toTop');if(tt)tt.addEventListener('click',function(){ev('back-to-top','맨 위로 클릭','back_to_top',{},false);});
 
   /* GA4 전용: 스크롤 % (동의 후) */
-  function setupScroll(){var marks=[25,50,75,100],hit={};function on(){var h=document.documentElement;var sc=h.scrollTop||document.body.scrollTop||0;var max=(h.scrollHeight-h.clientHeight)||1;var p=Math.min(100,Math.round(sc/max*100));marks.forEach(function(m){if(p>=m&&!hit[m]){hit[m]=1;ga('scroll_depth',{percent:m});}});}addEventListener('scroll',on,{passive:true});on();}
+  function setupScroll(){var marks=[25,50,75,100],hit={};function on(){var h=document.documentElement;var sc=h.scrollTop||document.body.scrollTop||0;var max=(h.scrollHeight-h.clientHeight)||1;var p=Math.min(100,Math.round(sc/max*100));marks.forEach(function(m){if(p>=m&&!hit[m]){hit[m]=1;ga('scroll_depth',{percent_scrolled:m});}});}addEventListener('scroll',on,{passive:true});on();}
 
   function init(){if(started)return;started=true;loadGA();loadClarity();setupScroll();
     /* 동의 전에 이미 지나간 구간도 GA4에 기록 */
