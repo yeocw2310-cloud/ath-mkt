@@ -420,7 +420,7 @@ footer{background:var(--paper);padding:80px 0 40px}
       <div class="col"><strong>앱</strong><span>App Store <em>준비 중</em></span><span>Google Play <em>준비 중</em></span></div>
     </div>
     <p class="fbig">Everywhere,<br><span>Right Now</span></p>
-    <div class="fb"><span>세계 지도를 중심으로 각 지역의 지금과 변화를 탐색하는 서비스.</span><span>© 2026 All Earth. All rights reserved.</span></div><p class="credit">Photos via Unsplash (Unsplash License)</p>
+    <div class="fb"><span>세계 지도를 중심으로 각 지역의 지금과 변화를 탐색하는 서비스.</span><span><a href="privacy.html" style="color:var(--ink);font-weight:700">개인정보 처리방침</a><span style="margin:0 8px;opacity:.5">|</span>© 2026 All Earth. All rights reserved.</span></div><p class="credit">Photos via Unsplash (Unsplash License)</p>
   </div>
 </footer>
 
@@ -661,34 +661,69 @@ resize();layoutSeoul();addEventListener("load",layoutSeoul);requestAnimationFram
 </script>
 
 <!-- ===== 쿠키/개인정보 동의 배너 ===== -->
-<div id="ae-consent" style="display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:80;max-width:880px;margin:0 auto;background:#23262C;color:#fff;padding:14px 16px 14px 20px;border-radius:18px;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:13px;line-height:1.55;box-shadow:0 20px 44px -18px rgba(0,0,0,.55);font-family:var(--sans)">
-  <span style="max-width:600px">본 사이트는 서비스 개선을 위해 Google Analytics · Microsoft Clarity 등 <b style="color:#DEFA5F">분석 쿠키</b>를 사용합니다. 동의하시면 방문 · 클릭 · 스크롤 데이터가 수집됩니다.</span>
+<div id="ae-consent" role="region" aria-label="쿠키 및 방문 통계 안내" style="display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:80;max-width:880px;margin:0 auto;background:#23262C;color:#fff;padding:14px 16px 14px 20px;border-radius:18px;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:13px;line-height:1.55;box-shadow:0 20px 44px -18px rgba(0,0,0,.55);font-family:var(--sans)">
+  <span style="max-width:620px">이 사이트는 개인을 식별하지 않는 <b>쿠키 없는 방문 통계</b>(GoatCounter)를 기본으로 사용해요. 동의하시면 Google Analytics · Microsoft Clarity의 <b style="color:#DEFA5F">분석 쿠키</b>로 클릭 · 스크롤 등 이용 흐름을 추가로 분석해요. 거부해도 사이트 이용에는 영향이 없어요. <a href="privacy.html" style="color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:600">개인정보 처리방침</a></span>
   <span style="display:flex;gap:8px;flex-shrink:0">
     <button type="button" onclick="aeConsent(true)" style="background:#DEFA5F;color:#23262C;border-radius:99px;height:38px;padding:0 18px;font-weight:700">동의</button>
     <button type="button" onclick="aeConsent(false)" style="background:transparent;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.25);border-radius:99px;height:38px;padding:0 16px;font-weight:600">거부</button>
   </span>
 </div>
 
-<!-- ===== Analytics (GA4 + Clarity), consent-gated ===== -->
+<!-- ===== Analytics =====
+  1) GoatCounter : 쿠키·개인식별 없음 → 동의와 무관하게 모든 방문자 집계 (방문 수·유입 경로·구간 도달·CTA 노출/클릭)
+  2) GA4 + Clarity : 동의한 방문자만 (상세 행동 분석)
+  GoatCounter 코드를 바꾸려면 GC_CODE 한 줄만 수정하세요. -->
 <script>
 (function(){
+  var GC_CODE='allearth-mkt';
   var GA_ID='G-P88426SVNP', CLARITY_ID='z6srzdt6ya', KEY='ae-consent', started=false;
-  function loadGA(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',GA_ID,{anonymize_ip:true});}
+
+  /* ---------- GoatCounter (always on, cookieless) ---------- */
+  var gcQ=[];
+  function gcFlush(){if(!(window.goatcounter&&window.goatcounter.count))return;while(gcQ.length){try{window.goatcounter.count(gcQ.shift());}catch(e){}}}
+  (function(){var s=document.createElement('script');s.async=true;s.src='https://gc.zgo.at/count.js';s.setAttribute('data-goatcounter','https://'+GC_CODE+'.goatcounter.com/count');s.onload=function(){var n=0,t=setInterval(function(){gcFlush();if(window.goatcounter&&window.goatcounter.count||++n>50)clearInterval(t);},100);};document.head.appendChild(s);})();
+  function gc(path,title){gcQ.push({path:path,title:title||path,event:true});gcFlush();}
+
+  /* ---------- GA4 + Clarity (consent only) ---------- */
+  function loadGA(){var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};gtag('js',new Date());gtag('config',GA_ID);}
   function loadClarity(){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",CLARITY_ID);}
-  function track(name,params){try{if(window.gtag)gtag('event',name,params||{});}catch(e){}try{if(window.clarity)clarity('event',name);}catch(e){}}
-  function txt(el){return (el.textContent||'').replace(/\s+/g,' ').trim().slice(0,40);}
-  function where(el){var s=el.closest('section,header,footer');return s?(s.id||s.tagName.toLowerCase()):'';}
-  function setupTracking(){
-    document.querySelectorAll('a[href*="nick-kim-ptk.github.io/ath"]').forEach(function(el){el.addEventListener('click',function(){track('cta_click',{label:txt(el),location:where(el)});});});
-    document.querySelectorAll('.hd .lnk, footer a[href^="#"]').forEach(function(el){el.addEventListener('click',function(){track('nav_click',{target:el.getAttribute('href'),location:where(el)});});});
-    var tt=document.getElementById('toTop');if(tt)tt.addEventListener('click',function(){track('back_to_top',{});});
-    document.querySelectorAll('#rx button').forEach(function(el){el.addEventListener('click',function(){track('reaction_click',{label:txt(el.querySelector('b')||el)});});});
-    var marks=[25,50,75,100],hit={};
-    function onScroll(){var h=document.documentElement;var sc=h.scrollTop||document.body.scrollTop||0;var max=(h.scrollHeight-h.clientHeight)||1;var p=Math.min(100,Math.round(sc/max*100));marks.forEach(function(m){if(p>=m&&!hit[m]){hit[m]=1;track('scroll_depth',{percent:m});}});}
-    addEventListener('scroll',onScroll,{passive:true});onScroll();
+  function ga(name,params){try{if(window.gtag)gtag('event',name,params||{});}catch(e){}try{if(window.clarity)clarity('event',name);}catch(e){}}
+
+  /* 공통 이벤트: GoatCounter(모두) + GA4(동의자) */
+  var once={};
+  function ev(gcPath,gcTitle,gaName,gaParams,dedupe){if(dedupe){if(once[gcPath])return;once[gcPath]=1;}gc(gcPath,gcTitle);ga(gaName,gaParams);}
+
+  /* ---------- 1. 구간 도달 (어디서 이탈하는지) ---------- */
+  var SECTIONS=[['hero','01 히어로'],['about','02 소개(라임)'],['explore','03 지도 탐색'],['reel','04 지역 이야기'],['react','05 반응'],['start','06 마지막 CTA'],['footer','07 푸터']];
+  function secEl(id){return id==='footer'?document.querySelector('footer'):document.getElementById(id);}
+  if('IntersectionObserver' in window){
+    var sio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var id=e.target.getAttribute('data-ae-sec'),lb=e.target.getAttribute('data-ae-lb');ev('section/'+id,'구간 도달 · '+lb,'section_view',{section:id},true);sio.unobserve(e.target);});},{rootMargin:'0px 0px -50% 0px'});
+    SECTIONS.forEach(function(x){var el=secEl(x[0]);if(el){el.setAttribute('data-ae-sec',x[0]);el.setAttribute('data-ae-lb',x[1]);sio.observe(el);}});
   }
-  function init(){if(started)return;started=true;loadGA();loadClarity();setupTracking();}
-  window.aeConsent=function(ok){try{localStorage.setItem(KEY,ok?'yes':'no');}catch(e){}if(ok)init();var b=document.getElementById('ae-consent');if(b)b.style.display='none';window.dispatchEvent(new Event('resize'));};
+
+  /* ---------- 2. CTA 노출 & 클릭 (클릭률 = 클릭 ÷ 노출) ---------- */
+  var CTAS=[['.hd .cta','header','상단 메뉴 MVP'],['#hu .btn-ink','hero','히어로 MVP'],['#orb','final_mvp','하단 MVP 원형'],['.orb-w','final_dashboard','하단 실데이터 원형'],['footer a[href*="nick-kim-ptk.github.io/ath"]','footer','푸터 MVP']];
+  CTAS.forEach(function(c){
+    var el=document.querySelector(c[0]);if(!el)return;
+    el.addEventListener('click',function(){ev('cta-click/'+c[1],'CTA 클릭 · '+c[2],'cta_click',{cta:c[1],label:c[2]},false);});
+    if(c[1]==='header'){ /* 상단 버튼은 항상 보이므로 페이지 진입 = 노출 */ ev('cta-view/header','CTA 노출 · '+c[2],'cta_view',{cta:'header'},true); return; }
+    if(c[1]==='hero'){ /* 히어로 버튼은 스크롤로 화면이 열린 뒤(.hu.live)에야 보임 */
+      var hu=document.getElementById('hu');var chk=function(){if(hu&&hu.classList.contains('live')){ev('cta-view/hero','CTA 노출 · '+c[2],'cta_view',{cta:'hero'},true);removeEventListener('scroll',chk);}};addEventListener('scroll',chk,{passive:true});chk();return; }
+    if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){ev('cta-view/'+c[1],'CTA 노출 · '+c[2],'cta_view',{cta:c[1]},true);io.disconnect();}});},{threshold:.6});io.observe(el);}
+  });
+
+  /* ---------- 기타 상호작용 ---------- */
+  document.querySelectorAll('.hd .lnk, footer a[href^="#"]').forEach(function(el){el.addEventListener('click',function(){var t=(el.getAttribute('href')||'').replace('#','');ev('nav/'+t,'메뉴 클릭 · '+t,'nav_click',{target:t},false);});});
+  document.querySelectorAll('#rx button').forEach(function(el){el.addEventListener('click',function(){var b=el.querySelector('b'),t=b?b.textContent.trim():'';ev('reaction/'+t,'반응 클릭 · '+t,'reaction_click',{label:t},false);});});
+  var tt=document.getElementById('toTop');if(tt)tt.addEventListener('click',function(){ev('back-to-top','맨 위로 클릭','back_to_top',{},false);});
+
+  /* GA4 전용: 스크롤 % (동의 후) */
+  function setupScroll(){var marks=[25,50,75,100],hit={};function on(){var h=document.documentElement;var sc=h.scrollTop||document.body.scrollTop||0;var max=(h.scrollHeight-h.clientHeight)||1;var p=Math.min(100,Math.round(sc/max*100));marks.forEach(function(m){if(p>=m&&!hit[m]){hit[m]=1;ga('scroll_depth',{percent:m});}});}addEventListener('scroll',on,{passive:true});on();}
+
+  function init(){if(started)return;started=true;loadGA();loadClarity();setupScroll();
+    /* 동의 전에 이미 지나간 구간도 GA4에 기록 */
+    var pre=Object.keys(once);setTimeout(function(){pre.forEach(function(k){var m=k.split('/');if(m[0]==='section')ga('section_view',{section:m[1]});else if(m[0]==='cta-view')ga('cta_view',{cta:m[1]});});},800);}
+  window.aeConsent=function(ok){try{localStorage.setItem(KEY,ok?'yes':'no');}catch(e){}if(ok)init();gc(ok?'consent/yes':'consent/no',ok?'쿠키 동의':'쿠키 거부');var b=document.getElementById('ae-consent');if(b)b.style.display='none';window.dispatchEvent(new Event('resize'));};
   var saved=null;try{saved=localStorage.getItem(KEY);}catch(e){}
   if(saved==='yes'){init();}
   else if(saved!=='no'){var b=document.getElementById('ae-consent');if(b)b.style.display='flex';}

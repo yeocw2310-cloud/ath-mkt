@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>개인정보 처리방침 — All Earth</title>
+<meta name="description" content="All Earth 마케팅 사이트의 개인정보 처리방침">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#FFFEFB">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2323262C'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23DEFA5F'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap">
+<style>
+:root{--paper:#FFFEFB;--ink:#23262C;--ink-2:#5D6169;--ink-3:#8A8E95;--surface:#F2F2EC;--lime:#DEFA5F;--line:rgba(35,38,44,.12);
+  --sans:"Pretendard","Poppins",system-ui,-apple-system,"Apple SD Gothic Neo",sans-serif;--en:"Poppins","Pretendard",sans-serif;--g:clamp(20px,4.2vw,64px)}
+*{box-sizing:border-box}
+html{background:var(--paper);scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.75;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+::selection{background:var(--lime)}
+.hd{position:sticky;top:0;z-index:10;background:rgba(255,254,251,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.hd .row{max-width:1080px;margin:0 auto;padding:0 var(--g);height:60px;display:flex;align-items:center;justify-content:space-between}
+.back{font-size:14px;font-weight:600;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+.brand{font-family:var(--en);font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.brand::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 1.5px var(--ink)}
+main{max-width:1080px;margin:0 auto;padding:clamp(48px,8vh,88px) var(--g) 96px;display:grid;grid-template-columns:240px 1fr;gap:56px}
+.eyebrow{font-family:var(--en);font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;display:inline-flex;align-items:center;gap:8px}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 1.5px var(--ink)}
+h1{grid-column:1/-1;margin:14px 0 0;font-size:clamp(32px,4vw,52px);line-height:1.2;letter-spacing:-.03em}
+.lead{grid-column:1/-1;margin:-28px 0 0;color:var(--ink-2);max-width:44em}
+.meta{display:inline-flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.meta span{font-size:13px;font-weight:600;background:var(--surface);border-radius:99px;padding:4px 12px}
+nav.toc{position:sticky;top:92px;align-self:start;font-size:14px}
+nav.toc ol{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink)}
+nav.toc li a{display:block;padding:9px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink-2)}
+nav.toc li a:hover{color:var(--ink)}
+article section{padding:0 0 40px;margin:0 0 40px;border-bottom:1px solid var(--line);scroll-margin-top:84px}
+article section:last-child{border-bottom:0}
+h2{margin:0 0 14px;font-size:22px;letter-spacing:-.02em;line-height:1.35;display:flex;gap:12px;align-items:baseline}
+h2 small{font-family:var(--en);font-size:13px;font-weight:600;color:var(--ink-3)}
+p{margin:0 0 12px}
+ul{margin:0 0 12px;padding-left:20px}
+li{margin:4px 0}
+.muted{color:var(--ink-2);font-size:15px}
+.tw{overflow-x:auto;margin:6px 0 14px;border:1px solid var(--line);border-radius:14px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:620px}
+th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}
+th{background:var(--surface);font-weight:700;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+.box{background:var(--surface);border-radius:16px;padding:18px 20px;margin:8px 0 14px}
+.consent{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--ink);color:#fff;border-radius:18px;padding:18px 20px;margin:10px 0 16px}
+.consent b{color:var(--lime)}
+.consent .btns{display:flex;gap:8px}
+.consent button{font:inherit;font-size:14px;font-weight:700;height:40px;padding:0 18px;border-radius:99px;border:0;cursor:pointer}
+.consent .y{background:var(--lime);color:var(--ink)}
+.consent .n{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.3)}
+.mail{font-weight:700;text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:3px;text-underline-offset:3px}
+footer{border-top:1px solid var(--line)}
+footer .row{max-width:1080px;margin:0 auto;padding:28px var(--g) 40px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:13px;color:var(--ink-3)}
+@media (max-width:860px){main{grid-template-columns:1fr;gap:36px}nav.toc{position:static}.lead{margin-top:-18px}}
+</style>
+</head>
+<body>
+<header class="hd"><div class="row"><a class="brand" href="./">All Earth</a><a class="back" href="./">← 사이트로 돌아가기</a></div></header>
+
+<main>
+  <div style="grid-column:1/-1"><span class="eyebrow">Privacy Policy</span>
+  <h1>개인정보 처리방침</h1>
+  <div class="meta"><span>시행일 2026년 11월 23일</span><span>개인 사이드 프로젝트</span></div></div>
+  <p class="lead">All Earth 마케팅 사이트(이하 ‘사이트’)는 개인이 운영하는 사이드 프로젝트예요. 회원가입이나 입력 양식이 없으며, 사이트 개선을 위한 <b>방문 통계</b>만 수집해요. 「개인정보 보호법」 제30조에 따라 어떤 정보를 어떻게 처리하는지 알려드려요.</p>
+
+  <nav class="toc" aria-label="목차"><ol>
+    <li><a href="#s1">1. 처리 목적</a></li>
+    <li><a href="#s2">2. 처리 항목과 수집 방법</a></li>
+    <li><a href="#s3">3. 보유 기간과 파기</a></li>
+    <li><a href="#s4">4. 제3자 제공</a></li>
+    <li><a href="#s5">5. 처리 위탁 · 국외 이전</a></li>
+    <li><a href="#s6">6. 쿠키 운영과 거부 방법</a></li>
+    <li><a href="#s7">7. 정보주체의 권리</a></li>
+    <li><a href="#s8">8. 안전성 확보 조치</a></li>
+    <li><a href="#s9">9. 만 14세 미만 아동</a></li>
+    <li><a href="#s10">10. 개인정보 보호책임자</a></li>
+    <li><a href="#s11">11. 권익침해 구제 방법</a></li>
+    <li><a href="#s12">12. 처리방침의 변경</a></li>
+  </ol></nav>
+
+  <article>
+    <section id="s1"><h2><small>01</small>처리 목적</h2>
+      <p>사이트는 다음 목적으로만 정보를 처리해요.</p>
+      <ul><li>방문자 수, 유입 경로 등 방문 통계 파악</li><li>어느 구간에서 이탈하는지, 어떤 버튼을 누르는지 분석해 사이트 구성과 콘텐츠 개선</li><li>Google Analytics 4 학습 및 데이터 분석 연습</li></ul>
+      <p class="muted">광고, 마케팅 메시지 발송, 맞춤형 광고에는 사용하지 않아요.</p>
+    </section>
+
+    <section id="s2"><h2><small>02</small>처리 항목과 수집 방법</h2>
+      <p>사이트는 이름, 연락처, 이메일 등 직접 입력하는 정보를 수집하지 않아요. 아래 도구가 자동으로 정보를 수집해요.</p>
+      <div class="tw"><table>
+        <thead><tr><th>도구</th><th>언제</th><th>수집 항목</th></tr></thead>
+        <tbody>
+          <tr><td><b>GoatCounter</b><br><span class="muted">쿠키 없는 방문 통계</span></td><td>모든 방문자</td><td>방문한 페이지, 유입 경로(이전 사이트 주소), 브라우저 · 운영체제 · 화면 크기, 국가, 사이트 내 구간 도달 및 버튼 노출 · 클릭 횟수<br><span class="muted">쿠키를 쓰지 않으며 개인을 식별할 수 있는 정보를 저장하지 않아요.</span></td></tr>
+          <tr><td><b>Google Analytics 4</b></td><td>쿠키 사용에 <b>동의한</b> 방문자만</td><td>쿠키 식별자(무작위 값), 방문 페이지 · 일시 · 체류 시간, 스크롤 · 클릭 등 이용 기록, 기기 · 브라우저 · 운영체제 정보, IP 주소를 바탕으로 한 대략적 지역, 유입 경로</td></tr>
+          <tr><td><b>Microsoft Clarity</b></td><td>쿠키 사용에 <b>동의한</b> 방문자만</td><td>쿠키 식별자(무작위 값), 마우스 이동 · 클릭 · 스크롤 기록, 화면 재생(세션 녹화)용 페이지 상호작용 정보, 기기 · 브라우저 정보, 대략적 지역<br><span class="muted">사이트에는 입력 양식이 없어 입력 내용은 녹화되지 않아요.</span></td></tr>
+        </tbody></table></div>
+      <p class="muted">동의 여부는 방문자의 브라우저(localStorage)에만 저장되며, 운영자에게 전송되지 않아요.</p>
+    </section>
+
+    <section id="s3"><h2><small>03</small>보유 기간과 파기</h2>
+      <ul>
+        <li><b>Google Analytics 4</b>: 수집일로부터 14개월이 지나면 자동 삭제돼요.</li>
+        <li><b>Microsoft Clarity</b>: 세션 녹화는 30일, 히트맵 등 통계는 최대 13개월 보관 후 자동 삭제돼요.</li>
+        <li><b>GoatCounter</b>: 개인을 식별할 수 없는 집계 통계만 남으며, 사이트 운영을 종료하면 계정과 함께 삭제해요.</li>
+      </ul>
+      <p>보유 기간이 끝나거나 처리 목적을 달성하면 각 서비스의 기능을 통해 지체 없이 삭제해요. 사이트 운영을 종료하는 경우에도 분석 계정의 데이터를 삭제해요.</p>
+    </section>
+
+    <section id="s4"><h2><small>04</small>제3자 제공</h2>
+      <p>사이트는 수집한 정보를 제3자에게 제공하지 않아요. 법령에 특별한 규정이 있는 경우에만 예외로 해요.</p>
+    </section>
+
+    <section id="s5"><h2><small>05</small>처리 위탁 · 국외 이전</h2>
+      <p>방문 통계 분석을 위해 아래 해외 사업자의 서비스를 이용하고 있어요. 쿠키 사용에 동의한 경우에만 Google과 Microsoft로 정보가 전송돼요.</p>
+      <div class="tw"><table>
+        <thead><tr><th>이전받는 자</th><th>국가</th><th>이전 항목</th><th>시기 · 방법</th><th>목적 · 보유 기간</th></tr></thead>
+        <tbody>
+          <tr><td>Google LLC<br><a class="muted" href="https://policies.google.com/privacy?hl=ko" target="_blank" rel="noopener">개인정보처리방침</a></td><td>미국</td><td>2번 표의 Google Analytics 4 항목</td><td>사이트 이용 시 네트워크를 통해 전송</td><td>방문 통계 분석 · 14개월</td></tr>
+          <tr><td>Microsoft Corporation<br><a class="muted" href="https://privacy.microsoft.com/ko-kr/privacystatement" target="_blank" rel="noopener">개인정보처리방침</a></td><td>미국</td><td>2번 표의 Microsoft Clarity 항목</td><td>사이트 이용 시 네트워크를 통해 전송</td><td>이용 행태 분석 · 최대 13개월</td></tr>
+        </tbody></table></div>
+      <p class="muted">국외 이전을 원하지 않으면 쿠키 사용을 거부하면 돼요. 거부해도 사이트 이용에는 영향이 없어요. GoatCounter는 개인을 식별할 수 없는 통계만 처리해요.</p>
+    </section>
+
+    <section id="s6"><h2><small>06</small>쿠키 운영과 거부 방법</h2>
+      <p>쿠키는 웹사이트가 방문자의 브라우저에 저장하는 작은 텍스트 파일이에요. 사이트는 동의한 경우에만 Google Analytics(<code>_ga</code> 등)와 Microsoft Clarity(<code>_clck</code>, <code>_clsk</code> 등) 쿠키를 사용해요.</p>
+      <div class="consent" id="consentBox"><span>현재 상태: <b id="cState">확인 중…</b></span><span class="btns"><button type="button" class="y" id="cYes">분석 쿠키 동의</button><button type="button" class="n" id="cNo">동의 철회 · 거부</button></span></div>
+      <ul>
+        <li>처음 방문할 때 화면 아래 안내 배너에서 <b>거부</b>를 누르면 분석 쿠키가 설치되지 않아요.</li>
+        <li>이미 동의했다면 위의 <b>동의 철회</b> 버튼을 눌러주세요. 이후 분석 쿠키 수집이 중단되고 저장된 쿠키가 삭제돼요.</li>
+        <li>브라우저 설정에서도 쿠키를 차단하거나 삭제할 수 있어요. (Chrome: 설정 → 개인정보 및 보안 → 서드파티 쿠키 / Safari: 설정 → 개인정보 보호 / Edge: 설정 → 쿠키 및 사이트 권한)</li>
+        <li>Google Analytics는 <a href="https://tools.google.com/dlpage/gaoptout?hl=ko" target="_blank" rel="noopener">Google Analytics 차단 브라우저 부가기능</a>으로도 거부할 수 있어요.</li>
+      </ul>
+    </section>
+
+    <section id="s7"><h2><small>07</small>정보주체의 권리</h2>
+      <p>방문자는 언제든지 개인정보 열람, 정정 · 삭제, 처리정지, 동의 철회를 요구할 수 있어요. 아래 10번의 이메일로 요청하면 지체 없이 조치할게요.</p>
+      <p class="muted">다만 사이트는 이름이나 연락처를 수집하지 않아 운영자가 특정 방문자의 기록을 찾을 수 없는 경우가 많아요. 가장 빠른 방법은 6번의 동의 철회와 브라우저 쿠키 삭제예요. 법정대리인이나 위임받은 사람을 통해서도 권리를 행사할 수 있어요.</p>
+    </section>
+
+    <section id="s8"><h2><small>08</small>안전성 확보 조치</h2>
+      <ul><li>사이트는 운영자의 서버에 개인정보를 저장하지 않아요.</li><li>모든 통신은 HTTPS로 암호화돼요.</li><li>분석 서비스 계정은 운영자만 접근할 수 있도록 관리해요.</li></ul>
+    </section>
+
+    <section id="s9"><h2><small>09</small>만 14세 미만 아동</h2>
+      <p>사이트는 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 별도로 수집하지 않아요.</p>
+    </section>
+
+    <section id="s10"><h2><small>10</small>개인정보 보호책임자</h2>
+      <div class="box">
+        <p style="margin:0">개인정보 보호책임자: All Earth 사이트 운영자 (개인)</p>
+        <p style="margin:0">이메일: <a class="mail" id="ppMail" href="mailto:yeocw2310@gmail.com">yeocw2310@gmail.com</a></p>
+      </div>
+      <p class="muted">개인정보 관련 문의, 불만 처리, 피해 구제 요청은 위 이메일로 보내주세요.</p>
+    </section>
+
+    <section id="s11"><h2><small>11</small>권익침해 구제 방법</h2>
+      <p>개인정보 침해로 인한 구제를 받으려면 아래 기관에 분쟁 해결이나 상담을 신청할 수 있어요.</p>
+      <ul>
+        <li>개인정보분쟁조정위원회: 1833-6972 · <a href="https://www.kopico.go.kr" target="_blank" rel="noopener">www.kopico.go.kr</a></li>
+        <li>개인정보침해신고센터: 118 · <a href="https://privacy.kisa.or.kr" target="_blank" rel="noopener">privacy.kisa.or.kr</a></li>
+        <li>대검찰청: 1301 · <a href="https://www.spo.go.kr" target="_blank" rel="noopener">www.spo.go.kr</a></li>
+        <li>경찰청: 182 · <a href="https://ecrm.police.go.kr" target="_blank" rel="noopener">ecrm.police.go.kr</a></li>
+      </ul>
+    </section>
+
+    <section id="s12"><h2><small>12</small>처리방침의 변경</h2>
+      <p>이 처리방침은 2026년 11월 23일부터 적용돼요. 내용이 바뀌면 시행 7일 전부터 이 페이지에 알려드려요.</p>
+    </section>
+  </article>
+</main>
+
+<footer><div class="row"><span>© 2026 All Earth. All rights reserved.</span><a href="./">사이트로 돌아가기</a></div></footer>
+
+<script>
+(function(){
+  var KEY='ae-consent',st=document.getElementById('cState');
+  function get(){try{return localStorage.getItem(KEY);}catch(e){return null;}}
+  function show(){var v=get();st.textContent=v==='yes'?'분석 쿠키에 동의함':v==='no'?'분석 쿠키 거부함':'아직 선택하지 않음';}
+  function wipe(){
+    var host=location.hostname,parts=host.split('.'),doms=['',host,'.'+host];
+    for(var i=1;i<parts.length-1;i++)doms.push('.'+parts.slice(i).join('.'));
+    document.cookie.split(';').forEach(function(c){var n=c.split('=')[0].trim();if(/^(_ga|_gid|_gat|_cl|CLID|MUID|ANONCHK|SM)/.test(n)){doms.forEach(function(d){document.cookie=n+'=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/'+(d?'; domain='+d:'');});}});
+  }
+  document.getElementById('cYes').addEventListener('click',function(){try{localStorage.setItem(KEY,'yes');}catch(e){}show();});
+  document.getElementById('cNo').addEventListener('click',function(){try{localStorage.setItem(KEY,'no');}catch(e){}wipe();show();});
+  show();
+})();
+</script>
+</body>
+</html>
